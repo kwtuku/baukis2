@@ -22,6 +22,7 @@ class Admin::SessionsController < Admin::Base
         render action: "new", status: :unprocessable_entity
       else
         session[:administrator_id] = administrator.id
+        session[:last_access_time] = Time.current
         flash.notice = "ログインしました。"
         redirect_to :admin_root
       end
