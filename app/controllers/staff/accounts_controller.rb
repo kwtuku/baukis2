@@ -12,9 +12,9 @@ class Staff::AccountsController < Staff::Base
     @staff_member.assign_attributes(staff_member_params)
     if @staff_member.save
       flash.notice = "アカウント情報を更新しました。"
-      redirect_to :staff_account
+      redirect_to :staff_account, status: :see_other
     else
-      render action: "edit"
+      render action: "edit", status: :unprocessable_entity
     end
   end
 
