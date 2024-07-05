@@ -13,7 +13,7 @@ class Staff::PasswordsController < Staff::Base
     @change_password_form.object = current_staff_member
     if @change_password_form.save
       flash.notice = "パスワードを変更しました。"
-      redirect_to :staff_account
+      redirect_to :staff_account, status: :see_other
     else
       flash.now.alert = "入力に誤りがあります。"
       render action: "edit", status: :unprocessable_entity
