@@ -17,7 +17,6 @@ function toggle_work_address_fields() {
 // Connects to data-controller="staff--customer-form"
 export default class extends Controller {
   connect() {
-    console.log("aaa");
     toggle_home_address_fields();
     toggle_work_address_fields();
     $("input#form_inputs_home_address").on("click", () => {
