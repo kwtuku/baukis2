@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_01_122731) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_15_113854) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_01_122731) do
     t.index ["birth_year", "family_name_kana", "given_name_kana"], name: "index_customers_on_birth_year_and_furigana"
     t.index ["birth_year", "given_name_kana"], name: "index_customers_on_birth_year_and_given_name_kana"
     t.index ["family_name_kana", "given_name_kana"], name: "index_customers_on_family_name_kana_and_given_name_kana"
+    t.index ["gender", "family_name_kana", "given_name_kana"], name: "index_customers_on_gender_and_furigana"
     t.index ["given_name_kana"], name: "index_customers_on_given_name_kana"
   end
 
