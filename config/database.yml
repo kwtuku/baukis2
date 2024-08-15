@@ -23,7 +23,7 @@ local: &local
   username: postgres
   password: password
   host: localhost
-  port: 5432
+  port: <%= ENV.fetch("POSTGRES_PORT") %>
 
 development:
   <<: *default
