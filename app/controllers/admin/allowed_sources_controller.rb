@@ -24,4 +24,11 @@ class Admin::AllowedSourcesController < Admin::Base
     params.require(:allowed_source)
       .permit(:octet1, :octet2, :octet3, :last_octet)
   end
+
+  def delete
+    if Admin::AllowedSourcesDeleter.new.delete(params[:form])
+      flash.notice = "許可IPアドレスを削除しました。"
+    end
+    redirect_to action: "index", status: :see_other
+  end
 end
