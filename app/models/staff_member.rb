@@ -4,6 +4,7 @@ class StaffMember < ApplicationRecord
   include PasswordHolder
 
   has_many :events, class_name: "StaffEvent", dependent: :destroy
+  has_many :programs, foreign_key: "registrant_id"
 
   validates :start_date, presence: true, date: {
                            after_or_equal_to: Date.new(2000, 1, 1),
