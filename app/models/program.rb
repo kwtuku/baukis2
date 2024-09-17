@@ -66,6 +66,11 @@ class Program < ApplicationRecord
                                      allow_blank: true,
                                      if: ->(obj) { obj.application_start_time },
                                    }
+  validates :min_number_of_participants, :max_number_of_participants,
+            numericality: {
+              only_integer: true, greater_than_or_equal_to: 1,
+              less_than_or_equal_to: 1000, allow_nil: true,
+            }
   validate do
     if min_number_of_participants && max_number_of_participants &&
        min_number_of_participants > max_number_of_participants
