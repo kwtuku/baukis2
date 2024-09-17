@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import jquery from "jquery";
-window.$ = jquery;
+import $ from "jquery";
 
 // Connects to data-controller="staff--entries-form"
 export default class extends Controller {

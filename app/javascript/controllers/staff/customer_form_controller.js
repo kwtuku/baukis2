@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import jquery from "jquery";
-window.$ = jquery;
+import $ from "jquery";
 
 function toggle_home_address_fields() {
   const checked = $("input#form_inputs_home_address").prop("checked");
