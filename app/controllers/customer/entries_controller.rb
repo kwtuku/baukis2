@@ -6,6 +6,8 @@ class Customer::EntriesController < Customer::Base
       flash.notice = "プログラムに申し込みました。"
     when :full
       flash.alert = "プログラムへの申込者数が上限に達しました。"
+    when :closed
+      flash.alert = "プログラムの申し込み期間が終了しました。"
     end
     redirect_to [:customer, program]
   end
