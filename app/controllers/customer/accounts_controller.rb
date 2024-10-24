@@ -22,12 +22,16 @@ class Customer::AccountsController < Customer::Base
   def update
     @customer_form = Customer::AccountForm.new(current_customer)
     @customer_form.assign_attributes(params[:form])
-    if @customer_form.save
-      flash.notice = "アカウント情報を更新しました。"
-      redirect_to :customer_account, status: :see_other
+    if params[:commit]
+      if @customer_form.save
+        flash.notice = "アカウント情報を更新しました。"
+        redirect_to :customer_account, status: :see_other
+      else
+        flash.now.alert = "⼊⼒に誤りがあります。"
+        render action: "edit", status: :unprocessable_entity
+      end
     else
-      flash.now.alert = "⼊⼒に誤りがあります。"
-      render action: "edit", status: :unprocessable_entity
+      render action: "edit", status: :accepted
     end
   end
 end
